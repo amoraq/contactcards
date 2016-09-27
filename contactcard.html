@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Card</title>
+        <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#submitbutton').click(function(){
+                    $('#cardholder').append('<div id="card">' + '<h2>' + $('#firstname').val() + " " + $('#lastname').val() + '</h2>' +
+                                            '<p>Click for description!</p>' + '</div>');
+                });
+                $(document).on('click', '#card', function() {
+                    $(this).text($('#description').val());
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <form id="user">
+            <label>First Name: </label>
+            <input class="inputfield" id="firstname" type="text" name="firstname" value="">
+            <label>Last Name: </label>
+            <input class="inputfield" id="lastname" type="text" name="lastname" value="">
+        </form>
+
+        <label>Description:</label>
+        <textarea class="inputfield" id="description"></textarea>
+        <button id="submitbutton" type="button">Add User</button>
+
+        <div id="cardholder">
+        </div>
+    </body>
+</html>
